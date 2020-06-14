@@ -1,0 +1,597 @@
+/*
+Theme Name: Shopkeeper Child
+Theme URI: http://shopkeeper.getbowtied.com/
+Description: This is a child theme for Shopkeeper.
+Author: Get Bowtied
+Author URI: http: //www.getbowtied.com/
+Template: shopkeeper
+Version: 1.0
+*/
+
+@import url("../shopkeeper/style.css");
+
+/****************************************************************/
+/*************** ADD YOUR CUSTOM CSS IN THIS AREA ***************/
+/****************************************************************/
+
+
+/* Default paragraph font-size is 18px */
+
+/* Hide credit card tab on Stripe payment popup */
+.PaymentMethodSelector-tabListItem--first {
+	display: none !important;
+}
+
+
+
+
+/******* Global style for widgets *******/
+ul li ul, ul li ol, ul, ol, dl {
+	font-size: 18px !important;
+}
+
+label { 
+	text-transform: none !important; 
+	font-size: 18px !important; 
+	font-weight: normal !important;
+}
+
+/* Color of hyperlink */
+.hyperlink {
+	color: #199cd8;
+}
+
+/* Responsive Tabs plugin */
+.responsive-tabs__list__item, .tabcontent.responsive-tabs__panel {
+	background-color: #ecece4 !important;
+}
+
+/* Search button for all pages */
+.site-search .widget_product_search input[type="submit"], .site-search .widget_product_search .search-submit, .site-search .widget_search .search-submit, .submit_icon {
+	top: 0px !important;
+	right: 0px !important;
+}
+.site-search {
+	/* Pop-up search */
+	background: rgba(220, 220, 220, 0.95) !important;
+}
+
+
+
+
+
+/******* Shop and Product pages **********/
+/* Product search box under header */
+.customized-search-field {
+	font-size: 20px !important;
+}
+.widget_product_search {
+	margin: 0 !important;
+	padding: 0 !important;
+}
+.woocommerce-product-search button { 
+  display: none !important;
+}
+.product-search-box-under-header-large-screen-background {
+	background: white !important;
+	width: 100% !important;
+	margin-top: -20px !important;
+	padding-top: 20px !important;
+	padding-bottom: 1px !important;
+}
+.product-search-box-under-header-large-screen {
+	width: 50% !important;
+	margin: 0 auto !important;
+	padding: 0 !important;
+}
+.product-search-box-under-header-small-screen {
+	padding-right: 20px !important;
+	margin-left: -20px !important;
+	margin-bottom: 50px !important;
+}
+.shop_header{ margin-top: -100px;}
+
+/* Catalog page */
+.product_thumbnail{
+	border: solid 1px rgba(200, 200, 200, 0.8) !important;
+}
+
+/* Product filter widgets */
+.widget-title { 
+	text-transform: capitalize !important;
+	font-size: 18px !important; 
+	/*font-weight: normal !important;*/
+}
+
+/* Categories tabs on Shop page */
+/*.category_name {
+	text-transform: none !important;
+	font-size: 20px !important; 
+}*/
+.list_shop_categories {
+	/* Don't display category tabs */
+	display: none !important;
+}
+.category_list {
+	/* Don't display category tabs */
+	display: none !important;
+}
+.page-title.on-shop {
+	/* When clicked a category on the Filter siderbar */
+	margin-top: 50px !important;
+	margin-bottom: -10px !important;
+}
+
+/* Categories on Product Categories filter widget */
+.widget.widget_product_categories a {
+	text-transform: none !important;
+}
+
+/* Out-of-stock sticker */
+.out_of_stock_badge_loop {
+	background-color: yellow !important;
+	color: black !important;
+}
+.out_of_stock_badge_single {
+	background-color: yellow !important;
+	color: black !important;
+}
+
+/* Product title */
+.product_title {
+	font-size: 24px !important;
+	text-transform: none !important;
+}
+
+.product_images {
+	border: solid 1px rgba(200, 200, 200, 0.8) !important;
+}
+.attachment-shop_thumbnail {
+	border: solid 1px rgba(200, 200, 200, 0.8) !important;
+}
+
+/* Product short desc */
+.read-link {
+	border-bottom: none !important;
+	text-decoration: none !important;
+}
+
+/* For product description (specs) page */
+.additional_information_tab {
+	display: none !important;
+}
+.xlarge-6 {
+	min-width: 70% !important; /* The width of the Description (Specs) row */
+}
+.product-specs-vc_column-inner {
+	padding-left: 0 !important;
+	padding-right: 0 !important;
+}
+.product-specs-table {
+	
+}
+.product-specs-table-attr-column {
+	width: 40% !important;
+	background: rgba(100,100,100, 0.1) !important;
+	padding-left: 10px !important;
+	padding-right: 10px !important;
+	float: none !important;
+	font-size: 18px !important;
+}
+.product-specs-table-value-column {
+	width: 60% !important;
+	padding-left: 10px !important;
+	padding-right: 10px !important;
+	float: none !important;
+	font-size: 18px !important;
+
+	/* Break long words and URLs. Ref: https://css-tricks.com/snippets/css/prevent-long-urls-from-breaking-out-of-container/ */
+	overflow-wrap: break-word !important;
+ 	word-wrap: break-word !important;
+	-ms-word-break: break-all;
+  	/* This is the dangerous one in WebKit, as it breaks things wherever */
+  	word-break: break-all;
+  	/* Instead use this non-standard one: */
+	  word-break: break-word;
+
+  	/* Adds a hyphen where the word breaks, if supported (No Blink) */
+  	-ms-hyphens: auto;
+  	-moz-hyphens: auto;
+  	-webkit-hyphens: auto;
+  	hyphens: auto;
+}
+/* old-version */
+.product-desc-table {
+	border: none !important;
+	border-spacing:0 !important; 
+	padding-left:10px !important;
+	padding-right:10px !important;
+	padding-top:0 !important;
+	padding-bottom:0 !important;
+}
+.product-desc-table-tr, .product-desc-table-td {
+	border:none !important; 
+	border-spacing:0 !important; 
+	padding-left:10px !important;
+	padding-right:10px !important;
+	padding-top:0 !important;
+	padding-bottom:0 !important;
+}
+.product-desc-table-attr {
+	font-weight: bold !important;
+}
+.product-desc-table tr:nth-child(even) {
+	/* Alternate row color for all tables */
+	background-color: #dddddd !important;
+}
+.product_meta {
+	/* SKU and Categories */
+	display: none !important;
+}
+
+/* For Amazon and Ebay affiliate links below the Add-To-Cart button */
+.buy-from-affiliate-links {
+	vertical-align: middle !important;
+	font-style: italic !important;
+}
+.amazon-affiliate-link-button {
+	display: inline-block;
+	width: 80px !important;
+	height: 30px !important;
+	background: url("http://svcomputer.co/wp-content/uploads/amazon2-h20.png") no-repeat center center;
+	border: 1px solid #cccccc !important;
+	border-radius: 5px !important;
+	margin-left: 5px !important;
+}
+.amazon-affiliate-link-button:hover {
+	background-color: rgba(100, 100, 100, 0.2);
+}
+.ebay-affiliate-link-button {
+	display: inline-block;
+	width: 80px !important;
+	height: 30px !important;
+	background: url("http://svcomputer.co/wp-content/uploads/ebay-logo-1-h20.png") no-repeat center center;
+	border: 1px solid #cccccc !important;
+	border-radius: 5px !important;
+	margin-left: 5px !important;
+}
+.ebay-affiliate-link-button:hover {
+	background-color: rgba(100, 100, 100, 0.2);
+}
+
+/* For add-to-cart message notification from single product page */
+.my-add-to-cart-message {
+	text-transform: none !important;
+}
+div.woocommerce-message > div > div.product_notification_text > div > div > a:after {
+	display: none !important;
+}
+
+
+
+
+/***** Testimonial *******/
+/* Remove blockquote from Testinomials */
+blockquote:after {  
+    content: "";  
+}  
+blockquote:before {  
+    content: "";  
+}
+.s1 {
+	font-size: 18px !important;
+}
+.testimonial-content, .testimonial-author {
+	font-style: italic;
+}
+.testimonial-star {
+	margin-top: -10px;
+}
+
+/* Testimonial Slider */
+.sldr_title {
+	display: none !important;
+}
+.testimonial_slider__default .testimonial_quote {
+	padding-left: 30px !important;
+	padding-right: 30px !important;
+	width: 100% !important;
+	margin: 0px !important;
+}
+div.testimonial_quote {
+	background: none !important;
+}
+.testimonial_slider__default .testimonial-star-outer {
+	float: left !important;
+	padding-left: 30px !important;
+	padding-right: 30px !important;
+}
+.testimonial_prev {
+	margin-left: 35% !important;
+	height: 32px !important;
+	width: 32px !important;
+}
+.testimonial_next {
+	margin-right: 35% !important;
+	height: 32px !important;
+	width: 32px !important;
+}
+.testimonial_nav_arrow_wrap { 
+	display: block !important;
+	visibility: visible !important; 
+	/*margin-top: -20px !important;*/
+}
+.testimonial-row {
+	margin-bottom: 0 !important;
+}
+.testimonial_slideri {
+	background: url("https://www.svcomputer.co/wp-content/uploads/LightGrayBackground.jpg") repeat !important;
+	/* Individual testimonial */
+}
+
+/* Testimonial Rotator pagination list */
+.testimonial_rotator_wrap {
+	margin-top: -30px !important;
+}
+/*.testimonial_rotator_paged a:first-child {
+	margin-right: 30% !important;
+}
+.testimonial_rotator_paged a:last-child {
+	margin-left: 30% !important;
+}*/
+
+
+
+/******** Home page ********/
+.home-page-slogan {
+	font-size: 26px;
+	color: black; /*#ef6700;*/
+	margin-top: 80px;
+	text-align: center;
+}
+.home-page-slogan-image {
+	margin-top: 50px;
+}
+.home-page-search-box-container {
+	text-align: center;
+	margin-top: 0px;
+	margin-left: -40px !important;
+}
+.shop-now-button-container {
+	text-align: center;
+	margin-top: 50px;
+	margin-left: -40px !important;
+	padding-bottom: 20px;
+}
+.shop-now-button {
+	font-size: 30px !important;
+	font-weight: bold !important;
+	text-transform: capitalize !important;
+}
+
+/* Inventory statistics */
+.inventory-statistics-table {
+	border:none; 
+	border-spacing:0; 
+	padding:0;
+	margin-top: 80px !important;
+	margin-bottom: 90px !important;
+}
+.inventory-statistics-table-tr {
+	border:none; 
+	border-spacing:0; 
+	padding:0;
+}
+.inventory-statistics-table-td-left {
+	text-align: center;
+	border: none; 
+	padding:0;
+	width: 33% !important;
+}
+.inventory-statistics-table-td-left-container {
+	float: left;
+	text-align: center;
+}
+.inventory-statistics-table-td-center {
+	text-align: center;
+	border: none; 
+	padding:0;
+	width: 33% !important;
+}
+.inventory-statistics-table-td-right {
+	text-align: center;
+	border: none;
+	padding:0;
+	width: 33% !important;
+}
+.inventory-statistics-table-td-right-container {
+	float: right;
+	text-align: center;
+}
+.home-page-inventory-statistics-number {
+	font-size: 24px;
+	color: black !important;
+}
+.home-page-inventory-statistics-text {
+	margin-top: -20px;
+	color: black !important;
+}
+
+.home-page-row-title {
+	font-size: 28px;
+	font-weight: bold;
+	color: black;
+	text-align: center;
+}
+.home-page-row-subtitle {
+	/* margin-top: -10px; */
+	padding-left: 10px;
+	padding-right: 10px;
+}
+.home-page-testimonial-container {
+	text-align: center;
+}
+.home-page-testimonial-star {
+	/* margin-top: 0px; */
+	margin-bottom: -20px;
+}
+
+/* Gift table on the home page */
+.gift-table {
+	border:none; 
+	text-align:center; 
+	border-spacing:0; 
+	padding:0;
+}
+.gift-table-tr {
+	border:none; 
+	text-align:center; 
+	border-spacing:0; 
+	padding:0;
+}
+.gift-table-td {
+	border:none; 
+	text-align:center; 
+	border-spacing:0; 
+	padding:0;
+	width: 25% !important;
+}
+.gift-caption {
+	text-align:center; 
+}
+
+/* Subscription */
+.es_lablebox {
+	display: none !important;
+}
+.es_textbox {
+	width: 50% !important;
+	display: inline-block !important;
+}
+.es_button {
+	width: 30% !important;
+	display: inline-block !important;
+	margin: 0px !important;
+	padding: 0px !important;
+}
+#es_txt_button_pg {
+	text-transform: none !important;
+	font-size: 18px !important;
+	padding-top: 9px !important;
+	padding-bottom: 6px !important;
+	padding-left: 0px !important;
+	padding-right: 0px !important;
+	margin-left: 10px !important;
+}
+.es_textbox_button {
+	margin: 0px !important;
+	padding: 0px !important;
+}
+.es_submit_button {
+	margin: 0px !important;
+	padding: 0px !important;
+}
+
+
+
+
+/****** Non-home page ******/
+.non-home-page-title {
+	font-size: 26px;
+	font-weight: bold;
+	color: black;
+	text-align: center;
+	margin-top: -30px !important;
+	margin-bottom: 50px !important;
+}
+.non-home-page-subtitle {
+	font-size: 18px;
+	font-weight: bold;
+	color: black;
+}
+.shipping-page-title {
+	font-size: 26px;
+	font-weight: bold;
+	color: black;
+}
+.paragraph {
+	padding-bottom: 20px;
+}
+
+
+
+
+/********** Cart and Checkout *********/
+.cart_item {
+	border-bottom: 1px solid rgba(84,84,84,0.15) !important;
+}
+.cart-wishlist-empty {
+	display: none !important;
+}
+.cart-empty {
+	font-size: 30px !important;
+}
+/*.actions {
+	padding: 20px !important;
+}*/
+.woocommerce-cart .entry-content .woocommerce .actions>.button {
+	background-color: rgba(84,84,84,0.55) !important;
+	padding: 10px !important;
+}
+.about_paypal {
+	display: none !important;
+}
+#braintree-paypal-loggedout {
+	text-align: center;
+	margin-top: 10px;
+}
+#paypal-braintree-button-container {
+	/* display: none !important; */
+}
+.payment_box.payment_method_braintree_paypal {
+	/* display: none !important; */
+}
+tr.shipping {
+	background: transparent !important;
+}
+.checkout_coupon_box {
+	/* Checkout page */
+	display: none !important;
+}
+.woocommerce-cart .shopkeeper-continue-shopping .button {
+	background: #d0d0d0 !important;
+	margin-bottom: 20px !important;
+}
+
+
+
+/*********** Stores page **********/
+.shop-from-store-button {
+	font-size: 18px !important;
+	font-weight: 500 !important;
+	text-transform: none !important;
+}
+.store-page-testimonial-container {
+	margin-top: -50px;
+}
+
+
+
+/******** Customer account login page *********/
+.login-register-container {
+	margin-top: -80px !important;
+}
+.woocommerce-MyAccount-navigation-link--downloads {
+	display: none !important;
+}
+.account-tab-list {
+	display: none !important;
+}
+
+
+
+
+
+/****************************************************************/
+/****************************************************************/
+/****************************************************************/

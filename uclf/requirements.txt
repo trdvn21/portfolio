@@ -1,0 +1,7 @@
+django
+django-nose
+facebook-sdk
+social-auth-app-django
+pyyaml
+mysqlclient
+django-mathfilters

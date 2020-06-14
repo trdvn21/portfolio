@@ -1,0 +1,161 @@
+{% extends 'publishing/base.html' %}
+{% block title %} UEFA Champions League FANs {% endblock %}
+{% block content %}
+{% load mathfilters %}
+
+<div class="row">
+    <div class="col-sm-12 mb-3">
+        <a href="{% url 'logout' %}" id="logout">Logout</a>
+        <h4 class="text-center"> Welcome {{ user.username }} </h4>
+    </div>
+</div>
+
+<!-- Status messages -->
+<div class="row">
+<ul id="messages" class="messages">
+    {% if messages %}
+    {% for message in messages %}
+        <li>{{ message }}</li>
+    {% endfor %}
+    {% endif %}
+</ul>
+</div>
+
+<!-- Facebook post form -->
+<div class="row">
+    <input hidden type="text" id="post-id" value="">
+    <textarea id="post-message" name="post-message" rows="10" cols="100%"></textarea>
+    <br>
+    <div style="width:100%">
+    <button id="publish-post" class="btn btn-primary mb-2">Post</button>
+    </div>
+
+</div>
+
+<!-- Posts history -->
+<div class="row">
+    <div class="posts-table-div">
+        <h4>Posts:</h4>
+        <table id="posts-table" class="posts-table">
+            {% if posts %}
+            {% for post in posts %}
+                <tr id="tr-post-{{post.id}}">
+                    <td style="font-style:italic">{{ post.created_date |date:"d.M.Y H:i" }}</td>
+                    <td id="message-{{post.id}}" width="70%">{{ post.message }}</td>
+                    <td><a id="{{post.id}}" onclick="on_edit(this.id)" href="#">Edit</a></td>
+                    <td><a id="{{post.id}}" onclick="on_delete(this.id)" href="#">Delete</a></td>
+                </tr>
+            {% endfor %}
+            {% endif %}
+        </table>
+    </div>
+</div>
+
+
+<script>
+    $("#publish-post").click(function () {
+        /* Post button is clicked */
+
+        var post_id = $("#post-id").val();
+        var post_message = $("#post-message").val();
+
+        $.ajax({
+            type: 'POST',
+            url: '{% url "publishing:publish_post" %}',
+            data: {
+                'id': post_id,
+                'msg': post_message,
+                'csrfmiddlewaretoken': '{{ csrf_token }}',
+            },
+            dataType: 'json',
+            success: function (response) {
+                $("#messages").html("<li>" + response.message + "</li>");
+                if (response.status == "success") {
+                    if (post_id) {
+                        // Update existing post
+                        $("#message-" + post_id).text(post_message);
+                    }
+                    else {
+                        // Create new post
+                        var new_row =
+                            "<tr id=\"tr-post-" +response.post_id+ "\">" +
+                                "<td style=\"font-style:italic\">" + current_time() + "</td>" +
+                                "<td id=\"message-" + response.post_id + "\" width=\"70%\">" + post_message + "</td>" +
+                                "<td><a id=\"" + response.post_id + "\" onclick=\"on_edit(this.id)\" href=\"#\">Edit</a></td>" +
+                                "<td><a id=\"" + response.post_id + "\" onclick=\"on_delete(this.id)\" href=\"#\">Delete</a></td>" +
+                            "</tr>"
+                        $("#posts-table tbody").prepend(new_row);
+                    }
+
+                    // Display post in the status messages
+                    $("#messages").append("<li>" + post_message + "</li>");
+
+                    // Reset the form
+                    $("#post-message").val("");
+                    $("#post-id").val("");
+                }
+            }
+        });
+    });
+</script>
+
+<script>
+    function on_delete(post_id){
+        /* A Delete button is clicked */
+
+        $.ajax({
+            type: 'POST',
+            url: '{% url "publishing:delete_post" %}',
+            data: {
+                'id': post_id,
+                'csrfmiddlewaretoken': '{{ csrf_token }}',
+            },
+            dataType: 'json',
+            success: function (response) {
+                if (response.status == "success") {
+                    document.getElementById("tr-post-" + post_id).remove();
+                }
+                $("#messages").html("<li>" + response.message + "</li>");
+            }
+        });
+    }
+
+    function on_edit(post_id) {
+        /* An Edit button is clicked */
+
+        var message = document.getElementById("message-" + post_id).innerHTML;
+        document.getElementById("post-message").value = message;
+        document.getElementById("post-id").value = post_id;
+    }
+
+    function current_time() {
+        /* Return current datetime in "d.M.Y H:i" format */
+
+        var d = new Date();
+        var year = d.getFullYear();
+
+        var day = d.getDate();
+        if (day < 10) {
+            day = "0" + day;
+        }
+
+        var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+        var month = d.getMonth();
+        month = months[month];
+
+        var hr = d.getHours();
+        if (hr < 10) {
+            hr = "0" + hr;
+        }
+        var min = d.getMinutes();
+        if (min < 10) {
+            min = "0" + min;
+        }
+
+        return day + "." + month + "." + year + " " + hr + ":" + min;
+    }
+</script>
+
+
+{% endblock %}
+
